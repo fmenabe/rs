@@ -1,0 +1,37 @@
+SOURCE = /home/francois/dev/rs
+WWW = /var/www/rs
+SETTINGS = $(WWW)/settings.py
+
+DB_BACKEND = postgresql_psycopg2
+DB_NAME = rs
+DB_USER = rs
+DB_PASSWORD =
+DB_HOST =
+DB_PORT =
+TIMEZONE = Europe/Paris
+LANGUAGE = fr-FR
+MEDIA_URL = /media
+MEDIA_DIR = $(WWW)/media
+
+
+all: clean copy configure
+
+clean:
+	rm -r $(WWW)
+
+copy:
+	cp -r $(SOURCE) $(WWW)
+
+configure:
+	sed -i s,%DB_BACKEND%,$(DB_BACKEND),g $(SETTINGS)
+	sed -i s,%DB_NAME%,$(DB_NAME),g $(SETTINGS)
+	sed -i s,%DB_USER%,$(DB_USER),g $(SETTINGS)
+	sed -i s,%DB_PASSWORD%,$(DB_PASSWORD),g $(SETTINGS)
+	sed -i s,%DB_HOST%,$(DB_HOST),g $(SETTINGS)
+	sed -i s,%DB_PORT%,$(DB_PORT),g $(SETTINGS)
+	sed -i s,%TIMEZONE%,$(TIMEZONE),g $(SETTINGS)
+	sed -i s,%LANGUAGE%,$(LANGUAGE),g $(SETTINGS)
+	sed -i s,%MEDIA_URL%,$(MEDIA_URL),g $(SETTINGS)
+	sed -i s,%MEDIA_DIR%,$(MEDIA_DIR),g $(SETTINGS)
+	chown -R francois:francois $(WWW)
+
