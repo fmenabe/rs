@@ -1,0 +1,6 @@
+# Byte-compiled python files (pyc)
+*.pyc
+
+# Vim temporary files
+*.swp
+*.swo
