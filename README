@@ -1,4 +1,1 @@
-The goal of this project is to create a centralized tasks scheduler (a remote cron).
-The project has two parts. The first is a webapp for managing configuration (ie: tasks
-to execute) and the second is a daemon that launching tasks based on the configuration
-every minutes.
+The goal of this project is to create a centralized tasks scheduler (a remote cron). The project has two parts. The first is a webapp for managing configuration (ie: tasks to execute) and the second is a daemon that launching tasks based on the configuration every minutes.
